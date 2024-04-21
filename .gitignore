@@ -1,0 +1,37 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Otros archivos de entorno
+.env.test
+.env.production
+
+# Dependiendo de tu configuración y herramientas utilizadas, puedes necesitar excluir más archivos o directorios aquí.
+
+# Carpeta de construcción
+/build
+/dist
+
+# Dependiendo de tu configuración, puedes excluir archivos generados por tu IDE o editor de texto
+# Por ejemplo, para Visual Studio Code
+.vscode/
+
+# Logs y archivos de caché
+/logs
+/cache
+
+# Archivos de dependencias y build de TypeScript
+*.tsbuildinfo
+*.tsbuildinfo.*
+
+#A
+package-lock.json
