@@ -1,12 +1,35 @@
-const express = require('express')
-const app = express()
-PORT = 3000
+const express = require('express');
+const dbConnection = require('./config/config');
+const routes = require('./routes/routeProduct');
+require('dotenv').config();
+
+
+ 
+const app = express();
+const PORT= process.env.PORT || 3000;
+
+
+app.get('/', (req, res) => {
+    res.redirect('/products/all');
+  })
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use('/', routes);
+
+dbConnection()
 
 
 
-app.get ('/', (req,res) => (res.send ('PROYECTO FINAL')))
+
 
 
 app.listen(PORT, () => {
+
     console.log(`Express esta escuchando en el puerto http://localhost:${PORT}`)
+
+
+
 })
+
