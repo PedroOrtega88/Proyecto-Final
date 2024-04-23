@@ -1,6 +1,6 @@
 const express = require('express');
 const dbConnection = require('./config/config');
-const routes = require('./routes/routeProduct');
+const routes = require('./routes/routePeliculas');
 require('dotenv').config();
 
 
@@ -9,8 +9,9 @@ const app = express();
 const PORT= process.env.PORT || 3000;
 
 
+
 app.get('/', (req, res) => {
-    res.redirect('/products/all');
+    res.redirect('/peliculas/all');
   })
 
 
