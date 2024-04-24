@@ -12,7 +12,7 @@ router.delete('/:id', PeliculasController.deletePelicula);
 router.put('/peliculas/:name', PeliculasController.updateByName);
 router.get('/peliculas/new', PeliculasController.showCreateForm);
 router.post('/peliculas/new', PeliculasController.createPelicula);
-router.get('/:id', PeliculasController.getPeliculaDetails);
+
 
 
 

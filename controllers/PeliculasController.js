@@ -27,8 +27,9 @@ const PeliculasController ={
                     .map(pelicula => {
                         return (
                             `<div>
-                            <h2>Película: ${pelicula.name}</h2>
-                            <img src="${pelicula.imageUrl}" alt="${pelicula.name}" width="200" height="auto">
+                            
+                            <img src="${pelicula.imageUrl}" alt="${pelicula.name}" width="200" height="auto"><br>
+                            <h2> ${pelicula.name}</h2>
                             <p>Descripción: ${pelicula.description}</p>
                             <p>Categoría: ${pelicula.category}</p>
                             <p>Plataforma: ${pelicula.platform}</p>
@@ -37,7 +38,7 @@ const PeliculasController ={
                             <p>Actores principales: ${pelicula.actors.join(', ')}</p>
                             <p>Director: ${pelicula.director}</p>                                                        <br>
                             <iframe width="560" height="315" src="${pelicula.trailerUrl}" frameborder="0" allowfullscreen></iframe>
-                                <br> 
+                                <br>   <br>
                             </div>`
                         );
                     })
@@ -138,19 +139,8 @@ const PeliculasController ={
             console.error('Error al crear la película:', error);
             res.status(500).send('Hubo un problema al crear la película');
         }
-    }, async getPeliculaDetails(req, res) {
-        try {
-            const id = req.params.id;
-            const pelicula = await Pelicula.findById(id);
-            if (!pelicula) {
-                return res.status(404).json({ error: 'Película no encontrada' });
-            }
-            res.render('peliculaDetails', { pelicula });
-        } catch (error) {
-            console.log(error);
-            res.status(500).json({ error: 'Error al obtener los detalles de la película' });
-        }
-    },
+    }, 
+  
     
 };
 
