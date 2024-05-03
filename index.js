@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const dbConnection = require('./config/config');
 const routes = require('./routes/routePeliculas');
 require('dotenv').config();
+
 
 
  
@@ -10,14 +12,17 @@ const PORT= process.env.PORT || 3000;
 
 
 
-app.get('/', (req, res) => {
-    res.redirect('/peliculas/all');
-  })
 
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true 
+  }));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/', routes);
+
 
 dbConnection()
 
